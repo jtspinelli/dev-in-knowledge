@@ -22,6 +22,7 @@
 body {
     height: 100vh;
     width: 100vw;
+    background-color: var(--prata);
 }
 
 .small {
@@ -116,17 +117,19 @@ main {
 #form-area {
     background-color: var(--roxo);
     width: var(--form-area-width);
-    height: 100%;
+    height: calc(100% - 20px);
     position: absolute;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 50px;
+    border-radius: 20px;
+    top: 10px;
 }
 
 #main-content {
-    background-color: var(--prata);
+    /* background-color: var(--prata); */
     height: 100%;
     width: calc(100% - var(--form-area-width));
     margin-left: var(--form-area-width);
