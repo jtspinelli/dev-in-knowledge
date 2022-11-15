@@ -11,6 +11,13 @@
 :root {
     --prata: #dadadb;
     --roxo: #1e195b;
+    --page-header-height: 80px;
+    --form-area-width: 400px
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
 }
 
 .small {
@@ -29,7 +36,7 @@
 
 #page-header {
     background-color: var(--roxo);
-    height: 80px;
+    height: var(--page-header-height);
     color: white;
 }
 
@@ -68,4 +75,27 @@
     font-size: .8rem;
     font-weight: 400;
     grid-column: 2;
+}
+
+main {
+    position: relative;
+    max-width: 1366px;
+    height: calc(100% - var(--page-header-height));
+    margin: 0 auto;
+    border-left: 1px solid gainsboro;
+    border-right: 1px solid gainsboro;
+}
+
+#form-area {
+    background-color: aquamarine;
+    width: var(--form-area-width);
+    height: 100%;
+    position: absolute;
+}
+
+#main-content {
+    background-color: crimson;
+    height: 100%;
+    width: calc(100% - var(--form-area-width));
+    margin-left: var(--form-area-width);
 }
