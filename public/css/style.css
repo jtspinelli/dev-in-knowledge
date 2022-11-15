@@ -13,14 +13,14 @@
     --prata-dark: #c4c4c4;
     --roxo: #1e195b;
     --lilas: #b7a4ff;
-    --page-header-height: 80px;
+    --page-header-height: 65px;
     --form-area-width: 400px;
     --green: #55ff55;
     --yellow: #ffec55;
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     background-color: var(--prata);
 }
@@ -110,14 +110,12 @@ main {
     max-width: 1366px;
     height: calc(100% - var(--page-header-height));
     margin: 0 auto;
-    /* border-left: 1px solid gainsboro;
-    border-right: 1px solid gainsboro; */
 }
 
 #form-area {
     background-color: var(--roxo);
     width: var(--form-area-width);
-    height: calc(100% - 20px);
+    min-height: calc(100vh - var(--page-header-height) - 20px);
     position: absolute;
     padding: 20px;
     display: flex;
@@ -129,7 +127,6 @@ main {
 }
 
 #main-content {
-    /* background-color: var(--prata); */
     height: 100%;
     width: calc(100% - var(--form-area-width));
     margin-left: var(--form-area-width);
@@ -234,4 +231,11 @@ main {
 .select2-container--default.select2-container--open.select2-container--below .select2-selection--single, .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
     border: 2px solid var(--lilas);
     border-bottom: none;
+}
+
+@media screen and (max-width: 1366px) {
+    #form-area {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
 }
