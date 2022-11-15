@@ -7,6 +7,7 @@
     <title>DEVinKnowledge</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/3a51d99d0c.js" crossorigin="anonymous"></script>
+    <script src="scripts/form.js" defer type="module"></script>
 </head>
 <body>
     <header id="page-header">
@@ -23,8 +24,46 @@
     </header>   
 
     <main>
-        <aside id="form-area">
+        <aside id="form-area"  style="color: white;">
+            <h1>Novo Knowledge</h1>
 
+            <form id="form-add-knowledge">
+                <div>
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" placeholder="Digite um título" minlength="8" maxlength="64" required>
+                </div>
+                
+                <div>
+                    <label for="linguagem-skill">Linguagem/Skill</label>
+                    <input type="text" id="linguagem-skill" placeholder="Digite uma linguagem ou skill" minlength="2" maxlength="16" required> 
+                </div>
+                
+                <div>
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" class="placeholder-prata" required>
+                        <option value="" selected disabled>Selecione uma categoria</option>
+                        <option value="FrontEnd">FrontEnd</option>
+                        <option value="BackEnd">BackEnd</option>
+                        <option value="FullStack">FullStack</option>
+                        <option value="Comportamental/Soft">Comportamental/Soft</option>
+                    </select>  
+                </div>
+                
+                <div>
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" cols="30" rows="10" minlength="16" maxlength="512" required></textarea> 
+                </div>
+                
+                <div>
+                    <label for="youtube-video">Vídeo do Youtube</label>
+                    <input type="text" pattern="^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube(-nocookie)?\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$" title="Ex.: https://www.youtube.com/watch?v=vUutn2sm8v0"> 
+                </div>
+                
+                <div>
+                    <button class="form-btn btn-reset" type="reset">Limpar</button>
+                    <button class="form-btn btn-save" type="submit">Salvar</button>
+                </div>                
+            </form>
         </aside>
 
         <div id="main-content">
