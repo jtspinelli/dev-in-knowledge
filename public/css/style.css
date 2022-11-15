@@ -174,9 +174,10 @@ main {
     outline-style: solid;
 }
 
-#form-area input::placeholder, #form-area select.placeholder-prata{
+#form-area input::placeholder,.select2-container--default .select2-selection--single .select2-selection__placeholder{
     color: var(--prata-dark);
     font-weight: 300;
+    font-family: 'Nunito', sans-serif;
 }
 
 #form-area select.placeholder-prata option, #form-area select option {
@@ -184,5 +185,28 @@ main {
 }
 
 #form-area select option:hover {
+    background-color: var(--lilas);
+}
+
+.select2-container--default .select2-selection--single {
+    background-color: var(--prata);
+    border: none;
+    border-radius: 10px;
+}
+
+.select2-container .select2-selection--single {
+    padding: 5px;
+    height: 38px;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    padding-left: 5px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 38px;
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
     background-color: var(--lilas);
 }

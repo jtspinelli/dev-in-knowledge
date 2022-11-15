@@ -1,9 +1,12 @@
-const selectCategoria = document.getElementById('categoria');
-
-selectCategoria.addEventListener('change', () => {
-    removerCategoria(selectCategoria, 'placeholder-prata');
-})
-
-function removerCategoria(elemento, categoria) {
-    elemento.classList.remove(categoria);
-}
+$('#categoria').select2({
+    placeholder: {
+        id: '',
+        text: "Selecione uma categoria"
+    },
+    language: {
+        noResults: function (params) {
+          return "Não encontrado.";
+        }
+    },
+    minimumResultsForSearch: -1 //esconde searchbar
+});

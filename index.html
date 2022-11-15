@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEVinKnowledge</title>
+    <title>DEVinKnowledge</title>    
+    <link href="select2/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="select2/dist/js/select2.min.js"></script>
     <script src="https://kit.fontawesome.com/3a51d99d0c.js" crossorigin="anonymous"></script>
     <script src="scripts/form.js" defer type="module"></script>
 </head>
@@ -40,8 +43,9 @@
                 
                 <div>
                     <label for="categoria">Categoria</label>
-                    <select id="categoria" class="placeholder-prata" required>
-                        <option value="" selected disabled>Selecione uma categoria</option>
+                    <select id="categoria" required>
+                        <!-- <option value="" selected disabled>Selecione uma categoria</option> -->
+                        <option></option>
                         <option value="FrontEnd">FrontEnd</option>
                         <option value="BackEnd">BackEnd</option>
                         <option value="FullStack">FullStack</option>
