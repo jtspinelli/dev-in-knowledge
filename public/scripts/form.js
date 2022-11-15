@@ -15,7 +15,12 @@ const categoriaSelect = document.getElementById('categoria');
 const form = document.getElementById('form-add-knowledge');
 
 form.addEventListener('reset', limparCategoriaSelect);
+form.addEventListener('submit', submitForm);
 
 function limparCategoriaSelect() {
     $("#categoria").val('').trigger('change');
+}
+
+function submitForm(event) {
+    event.preventDefault();
 }
