@@ -22,7 +22,7 @@
 
 body {
     min-height: 100vh;
-    width: 100vw;
+    max-width: 100vw;
     background-color: var(--prata);
 }
 
@@ -329,20 +329,20 @@ main {
     border-color: transparent;
 }
 
-::-webkit-scrollbar {
+#main-content ::-webkit-scrollbar {
     width: 9px;
 }  
 
-::-webkit-scrollbar-track {
+#main-content ::-webkit-scrollbar-track {
     background: rgb(221, 221, 221);
 }
 
-::-webkit-scrollbar-thumb {
+#main-content ::-webkit-scrollbar-thumb {
     background: var(--roxo);
     border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb:hover {
+#main-content ::-webkit-scrollbar-thumb:hover {
 background: var(--lilas);
 }
 
