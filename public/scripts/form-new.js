@@ -1,4 +1,5 @@
-import {v4 as uuid} from '/uuid/dist/esm-browser/index.js'
+import {v4 as uuid} from '/uuid/dist/esm-browser/index.js';
+import { getKnowledges, addKnowledge } from './knowledge.js'
 
 $('#categoria').select2({
     placeholder: {
@@ -38,5 +39,5 @@ function submitForm(event) {
         youtubeVideo: getVideoIdFromUrl(event.target['youtube-video'].value)
     }
 
-    console.log(newKnowledge);
+    addKnowledge(newKnowledge);
 }
