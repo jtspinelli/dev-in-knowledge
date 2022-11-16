@@ -47,6 +47,7 @@ body {
     height: 35px;
     color: var(--prata);
     background-color: var(--roxo);
+    cursor: pointer;
 }
 
 .form-btn:hover {    
