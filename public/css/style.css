@@ -330,26 +330,22 @@ main {
     border-color: transparent;
 }
 
-/* width */
 ::-webkit-scrollbar {
-    width: 7px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+    width: 9px;
+}  
+
+::-webkit-scrollbar-track {
     background: rgb(221, 221, 221);
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+
+::-webkit-scrollbar-thumb {
     background: var(--roxo);
     border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: var(--lilas);
+}
 
 @media screen and (max-width: 1366px) {
     #form-area {
