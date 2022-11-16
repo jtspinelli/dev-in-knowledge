@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800&display=swap');
 
 * {
     margin: 0;
@@ -17,6 +17,7 @@
     --form-area-width: 400px;
     --green: #55ff55;
     --yellow: #ffec55;
+    --text-default: #272727;
 }
 
 body {
@@ -110,7 +111,7 @@ main {
     position: relative;
     max-width: 1366px;
     height: calc(100% - var(--page-header-height));
-    margin: 0 auto;
+    margin: 0 auto;    
 }
 
 #form-area {
@@ -128,9 +129,11 @@ main {
 }
 
 #main-content {
-    height: 100%;
     width: calc(100% - var(--form-area-width));
     margin-left: var(--form-area-width);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 #form-add-knowledge {
@@ -169,13 +172,13 @@ main {
     background-color: var(--prata);
 }
 
-#form-area input:focus-visible, #form-area select:focus-visible, #form-area textarea:focus-visible {
+#form-area input:focus-visible, #form-area select:focus-visible, #form-area textarea:focus-visible, #form-search input:focus-visible {
     outline-color: var(--lilas);
     outline-width: 2px;
     outline-style: solid;
 }
 
-#form-area input::placeholder,.select2-container--default .select2-selection--single .select2-selection__placeholder{
+#form-area input::placeholder,.select2-container--default .select2-selection--single .select2-selection__placeholder, #form-search input::placeholder {
     color: var(--prata-dark);
     font-weight: 300;
     font-family: 'Nunito', sans-serif;
@@ -188,6 +191,165 @@ main {
 #form-area select option:hover {
     background-color: var(--lilas);
 }
+
+.totais-cards {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.totais-cards > div, .card {
+    background-color: white;
+    padding: 5px 10px;
+    width: calc(100% / 6);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 3px 12px 0 #b1b1b1;
+    border: 1px solid gainsboro;
+    color: var(--text-default);
+}
+
+.totais-cards > div h4 {
+    font-size: 1.2rem;
+}
+
+.totais-cards > div span {
+    font-size: 2rem;
+}
+
+.search-bar {
+    padding: 10px 20px;
+}
+
+.search-bar form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-bar form input {
+    width: calc(100% - (56px * 2) - 20px);
+    padding: 5px 15px;
+    border-radius: 25px;
+    border: 1px solid var(--roxo);
+    font-size: 1rem;
+    color: var(--roxo);
+    font-weight: 600;
+}
+
+.search-bar form input:focus-visible {
+    border-color: transparent;
+}
+
+#form-search input::placeholder {
+    color: #1f195ba9;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.search-bar form button {
+    padding: 3px;
+    width: 56px;
+    border-radius: 25px;
+    font-size: 1.5rem;
+    background-color: white;
+    border: 1px solid var(--roxo);
+    color: var(--roxo);
+    cursor: pointer;
+}
+
+.search-bar form button:hover, .card footer button:hover {
+    background-color: var(--roxo);
+    color: var(--lilas);
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: scroll;
+    max-height: 723px;
+    padding: 20px;
+}
+
+.card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card header {
+    width: 100%;
+}
+
+.card header h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.card header ul li:first-child::before {
+    content: 'Linguagem/Skill: ';
+    font-weight: 800;
+}
+
+.card header ul li:last-child::before {
+    content: 'Categoria: ';
+    font-weight: 800;
+}
+
+.card p {
+    text-align: justify;
+    text-indent: 20px;
+}
+
+.card footer {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+
+.card footer button {
+    font-size: 1.2rem;
+    border-radius: 50%;
+    border: 1px solid var(--text-default);
+    background-color: white;
+    width: 40px;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+}
+
+.card footer button:has(i.fa-trash):hover {
+    background-color: red;
+    color: var(--prata);
+    border-color: transparent;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgb(221, 221, 221);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--roxo);
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 
 @media screen and (max-width: 1366px) {
     #form-area {
