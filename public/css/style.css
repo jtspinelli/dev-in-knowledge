@@ -110,7 +110,6 @@ body {
 main {
     position: relative;
     max-width: 1366px;
-    height: calc(100% - var(--page-header-height));
     margin: 0 auto;    
 }
 
@@ -134,6 +133,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    max-height: calc(100vh - var(--page-header-height));
 }
 
 #form-add-knowledge {
@@ -269,8 +269,7 @@ main {
     flex-direction: column;
     gap: 20px;
     overflow-y: scroll;
-    max-height: 723px;
-    padding: 20px;
+    padding: 10px 20px;
 }
 
 .card {
@@ -351,5 +350,9 @@ background: var(--lilas);
     #form-area {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
+    }
+
+    #main-content {
+        max-height: 770px;
     }
 }
