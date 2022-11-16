@@ -78,6 +78,10 @@ body {
     justify-content: center;
 }
 
+aside #logo-container {
+    display: none;
+}
+
 #logo-text-container {
     display: flex;
     flex-direction: column;
@@ -346,13 +350,60 @@ main {
 background: var(--lilas);
 }
 
+
+
 @media screen and (max-width: 1366px) {
+    aside #logo-container {
+        display: flex;
+        height: unset;
+    }
+
+    :-webkit-any(article, aside, nav, section) h1 {
+        font-size: 2rem;
+    }
+
+    main {
+        max-height: 100vh;
+    }
+
+    #page-header {
+        display: none;
+    }
+
     #form-area {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
+        top: 0;
+        border-radius: 0;
+        gap: 15px;
+        height: 100vh;
     }
 
+    #form-area input {
+        height: 40px;
+    }
+
+    #form-area textarea {
+        max-height: 150px;
+    }
+
+    #form-area > h1 {
+        display: none;
+    }
+
+    #form-area form > div:last-child {
+        margin-top: 10px;
+    }   
+
     #main-content {
-        max-height: 770px;
+        max-height: 100vh;
+    }
+
+    .totais-cards {
+        padding: 20px 20px 10px;
+    }
+
+    .cards-container {
+        padding: 10px 20px 20px;
     }
 }
