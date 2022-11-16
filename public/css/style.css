@@ -188,51 +188,6 @@ main {
     background-color: var(--lilas);
 }
 
-.select2-container--default .select2-selection--single {
-    background-color: var(--prata);
-    border: none;
-    border-radius: 10px;
-}
-
-.select2-container .select2-selection--single {
-    padding: 5px;
-    height: 38px;
-}
-
-.select2-container .select2-selection--single .select2-selection__rendered {
-    padding-left: 5px;
-}
-
-.select2-container--default .select2-selection--single .select2-selection__arrow {
-    height: 38px;
-}
-
-.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
-    background-color: var(--lilas);
-}
-
-.select2-container--default .select2-selection--single .select2-selection__rendered {
-    color: var(--roxo);
-}
-
-.select2-results__option {
-    padding-left: 12px;
-}
-
-.select2-container--open .select2-dropdown--below {
-    border: 2px solid var(--lilas);
-    border-top: none;
-}
-
-.select2-dropdown {
-    border-radius: 11px;
-}
-
-.select2-container--default.select2-container--open.select2-container--below .select2-selection--single, .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
-    border: 2px solid var(--lilas);
-    border-bottom: none;
-}
-
 @media screen and (max-width: 1366px) {
     #form-area {
         border-top-left-radius: 0;
