@@ -1,4 +1,10 @@
+const FRONTEND = 'FrontEnd';
+const BACKEND = 'BackEnd';
+const FULLSTACK = 'FullStack';
+const SOFTSKILLS = 'SoftSkills';
+
 const cardsContainer = document.querySelector('section.cards-container');
+const counters = document.querySelectorAll('.counter');
 const knowledges = [
     {
         id: "e31704ca-cfc6-4361-842a-67e37410f9b3",
@@ -21,7 +27,7 @@ const knowledges = [
     }
 ];
 
-window.addEventListener('load', populaCards);
+window.addEventListener('load', init);
 
 export function getKnowledges() {
     return knowledges;
@@ -30,18 +36,50 @@ export function getKnowledges() {
 export function addKnowledge(knowledge) {
     knowledges.push(knowledge);
     cardsContainer.insertBefore(populaCardHtml(knowledge), cardsContainer.firstChild);
+
+    atualizaContadorTotal();
+    atualizarContadorDaCategoria(knowledge.categoria);
 }
 
 function sortByDate() {
     knowledges.sort((a, b) => b.dataCriacao > a.dataCriacao ? 1 : -1);
 }
 
+function init() {
+    populaContadores();
+    populaCards();
+}
+
+function atualizaContadorTotal() {
+    counters[0].textContent = knowledges.length;
+}
+
+function atualizarContadorDaCategoria(categoria) {
+    const contadorHtml = [...counters].filter(e => e.previousElementSibling.textContent === categoria)[0];
+    const qtdeDaCategoria = knowledges.filter(e => e.categoria === categoria).length;
+
+    contadorHtml.textContent = qtdeDaCategoria;
+}
+
+function populaContadores() {
+    const qtdeFrontEnd = knowledges.filter(e => e.categoria === FRONTEND).length;
+    const qtdeBackEnd = knowledges.filter(e => e.categoria === BACKEND).length;
+    const qtdeFullStack = knowledges.filter(e => e.categoria === FULLSTACK).length;
+    const qtdeSoftSkills = knowledges.filter(e => e.categoria === SOFTSKILLS).length;
+
+    const categoriasCount = [knowledges.length, qtdeFrontEnd, qtdeBackEnd, qtdeFullStack, qtdeSoftSkills];
+
+    for(let index in [...counters]) {
+        counters[index].textContent = categoriasCount[index];
+    }
+}
+
 function populaCards() {
     sortByDate();
-
+    
     knowledges.forEach(knowledge => {
         cardsContainer.appendChild(populaCardHtml(knowledge));
-    })
+    });
 }
 
 function populaCardHtml(knowledge) {
