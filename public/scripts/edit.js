@@ -1,7 +1,8 @@
 import { getKnowledges } from "./knowledge.js";
+import { getVideoIdFromUrl } from './form-new.js'
 
 const formFields = document.querySelectorAll('form#form-add-knowledge input, form#form-add-knowledge select, form#form-add-knowledge textarea');
-const keysOrder = ['titulo', 'linguagemSkill', 'categoria', 'descricao', 'youtubeVideo'];
+const keysOrder = ['id', 'titulo', 'linguagemSkill', 'categoria', 'descricao', 'youtubeVideo'];
 const formArea = document.getElementById('form-area');
 const formTitle = document.getElementById('form-add-knowledge-title');
 const formResetBtn = document.querySelector('form#form-add-knowledge button[type=reset]');
@@ -29,7 +30,6 @@ function popularForm(knowledgeOriginal) {
     $('#categoria').trigger('change');
 
     ativarModoEdicao(knowledge.id);
-
 }
 
 function ativarModoEdicao(idEmEdicao) {
@@ -45,11 +45,43 @@ function ativarModoEdicao(idEmEdicao) {
     formResetBtn.textContent = 'Cancelar';
 }
 
+export function salvarEdicao(event) {
+    const knowledge = getKnowledges().filter(e => e.id === event.target['knowledge-id'].value)[0];
+
+    knowledge.titulo = event.target.titulo.value;
+    knowledge.linguagemSkill = event.target['linguagem-skill'].value;
+    knowledge.categoria = event.target.categoria.value;
+    knowledge.descricao = event.target.descricao.value;
+    knowledge.titulo = event.target.titulo.value;
+    knowledge.youtubeVideo = getVideoIdFromUrl(event.target['youtube-video'].value);
+
+    atualizaCardHtml(event);
+}
+
+function atualizaCardHtml(event) {
+    const cardHtml = `.card[id='${event.target['knowledge-id'].value}']`;
+    const cardTitulo = document.querySelector(`${cardHtml} header > h1`);
+    const cardLinguagemSkill = document.querySelector(`${cardHtml} header ul li:first-child`);
+    const cardCategoria = document.querySelector(`${cardHtml} header ul li:last-child`);
+    const cardDescricao = document.querySelector(`${cardHtml} > p`);
+
+    cardTitulo.textContent = event.target.titulo.value;
+    cardLinguagemSkill.textContent = event.target['linguagem-skill'].value;
+    cardCategoria.textContent = event.target.categoria.value;
+    cardDescricao.textContent = event.target.descricao.value;
+
+    const cardPlayVideoBtn = document.querySelector(`${cardHtml} footer > button.play-video`);
+    if(cardPlayVideoBtn !== null) {
+        const a = document.querySelector(`${cardHtml} footer > button.play-video a`);
+        a.href = event.target['youtube-video'].value;
+    }
+}
+
 function cardsEmEdicao() {
     return document.querySelectorAll('article.card.edit');
 }
 
-function getId(event) {
+export function getId(event) {
     const clickNoIcon = event.target.localName === 'i';
 
     if(clickNoIcon) {

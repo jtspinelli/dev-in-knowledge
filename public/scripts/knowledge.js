@@ -1,4 +1,4 @@
-import { editarKnowledge } from './edit.js'
+import { editarKnowledge, getId } from './edit.js'
 
 const FRONTEND = 'FrontEnd';
 const BACKEND = 'BackEnd';
@@ -26,6 +26,16 @@ const knowledges = [
         categoria: "FrontEnd",
         descricao: "Mussum Ipsum, cacilds vidis litro abertis. Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio. Aenean aliquam molestie leo, vitae iaculis nisl.Casamentiss faiz malandris se pirulitáat odio. Aenean aliquam molestie leo, vitae iaculis nisl.Casamentiss faiz malandris se pirulitá.",
         youtubeVideo: null,
+    },
+
+    {
+        id: "017c13a1-3ad9-4ed2-b9a2-a30903b58aec",
+        dataCriacao: new Date('Thu Nov 17 2022 09:51:19 GMT-0300 (Brasilia Standard Time)'),
+        titulo: "Dica tal e tal",
+        linguagemSkill: "Alguma coisa",
+        categoria: "FrontEnd",
+        descricao: "Mussum Ipsum, cacilds vidis litro abertis. Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio. Aenean aliquam molestie leo, vitae iaculis nisl.Casamentiss faiz malandris se pirulitáat odio. Aenean aliquam molestie leo, vitae iaculis nisl.Casamentiss faiz malandris se pirulitá.",
+        youtubeVideo: 'dq76BeYmc-Y',
     }
 ];
 
@@ -123,10 +133,18 @@ function populaCardHtml(knowledge) {
 
     if(knowledge.youtubeVideo !== null) {
         const buttonVideo = document.createElement('button');
+        buttonVideo.className = 'play-video';
+
+        const a = document.createElement('a');
+        a.href = `https://www.youtube.com/watch?v=${knowledge.youtubeVideo}`;
+        a.target = '_blank';
+
         const iconeVideo = document.createElement('i');
         iconeVideo.className = 'fa-solid fa-video';
 
         buttonVideo.appendChild(iconeVideo);
+        buttonVideo.appendChild(a);
+        buttonVideo.addEventListener('click', openVideo);
 
         footer.appendChild(buttonVideo);
     }    
@@ -137,4 +155,14 @@ function populaCardHtml(knowledge) {
     article.appendChild(footer);
     
     return article;
+}
+
+function openVideo(event) {
+    const knowledgeId = getId(event); 
+    
+    if(knowledgeId !== '') {
+        const a = document.querySelector(`.card[id='${knowledgeId}'] footer > button.play-video a`);
+
+        a.click();
+    }  
 }
