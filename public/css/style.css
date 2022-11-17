@@ -129,6 +129,22 @@ main {
     gap: 50px;
     border-radius: 20px;
     top: 10px;
+    transition: 1s;
+}
+
+.edit {
+    --roxo: #186b6f;
+    transition: 1s;
+}
+
+.edit footer button.btn-editar {
+    background-color: var(--roxo);
+    color: white;
+    transition: 1s;
+}
+
+.edit footer button.btn-editar:hover {
+    color: white;
 }
 
 #main-content {

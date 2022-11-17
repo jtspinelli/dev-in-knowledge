@@ -1,3 +1,5 @@
+import { editarKnowledge } from './edit.js'
+
 const FRONTEND = 'FrontEnd';
 const BACKEND = 'BackEnd';
 const FULLSTACK = 'FullStack';
@@ -17,7 +19,7 @@ const knowledges = [
     },
 
     {
-        id: "e31704ca-cfc6-4361-842a-67e37410f9b3",
+        id: "b74ac328-f9a6-4966-bacc-988331483cf0",
         dataCriacao: new Date('Wed Nov 16 2022 18:20:13 GMT-0300 (Brasilia Standard Time)'),
         titulo: "Outro título",
         linguagemSkill: "Alguma coisa",
@@ -84,17 +86,19 @@ function populaCards() {
 
 function populaCardHtml(knowledge) {
     const article = document.createElement('article');
+    article.id = knowledge.id;
+
     const header = document.createElement('header');
     const footer = document.createElement('footer');
     const h1 = document.createElement('h1');
     const ul = document.createElement('ul');
     const liSkill = document.createElement('li');
     const liCategoria = document.createElement('li');
-    const p = document.createElement('p');    
+    const p = document.createElement('p');
     const buttonExluir = document.createElement('button');
     const iconeLixeira = document.createElement('i');
     const buttonEditar = document.createElement('button');
-    const iconeEditar = document.createElement('i');     
+    const iconeEditar = document.createElement('i');
 
     h1.textContent = knowledge.titulo;
     liSkill.textContent = knowledge.linguagemSkill;
@@ -110,7 +114,9 @@ function populaCardHtml(knowledge) {
     header.appendChild(ul);
 
     buttonExluir.appendChild(iconeLixeira);
-    buttonEditar.appendChild(iconeEditar);    
+    buttonEditar.appendChild(iconeEditar);
+    buttonEditar.className = 'btn-editar'
+    buttonEditar.addEventListener('click', editarKnowledge);
 
     footer.appendChild(buttonExluir);
     footer.appendChild(buttonEditar);

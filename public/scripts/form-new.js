@@ -15,12 +15,41 @@ $('#categoria').select2({
 });
 
 const form = document.getElementById('form-add-knowledge');
+const formArea = document.getElementById('form-area');
+const formTitle = document.getElementById('form-add-knowledge-title');
+const formResetBtn = document.querySelector('form#form-add-knowledge button[type=reset]');
 
-form.addEventListener('reset', limparCategoriaSelect);
+form.addEventListener('reset', resetForm);
 form.addEventListener('submit', submitForm);
+
+function resetForm() {
+    limparCategoriaSelect();
+
+    if(taEmModoEdicao) {
+        desativaModoEdicao();
+    }
+}
+
+function taEmModoEdicao() {
+    return formArea.classList.value.includes('edit');
+}
 
 function limparCategoriaSelect() {
     $("#categoria").val('').trigger('change');
+}
+
+function desativaModoEdicao() {
+    const btnEditar = document.querySelector('article.edit button.btn-editar');
+    btnEditar.style.transition = '1s';
+
+    const articleEmEdicao = document.querySelector('article.edit');
+    articleEmEdicao.classList.remove('edit');
+
+    setTimeout( () => { btnEditar.style = ''; }, 1000);    
+
+    formArea.classList.remove('edit');
+    formTitle.textContent = 'Novo Knowledge';
+    formResetBtn.textContent = 'Limpar';
 }
 
 function getVideoIdFromUrl(youtubeVideoUrl) {
