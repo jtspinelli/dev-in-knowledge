@@ -1,4 +1,4 @@
-import { atualizarLocalStorage, getKnowledges, openVideo } from "./knowledge.js";
+import { atualizarLocalStorage, getKnowledges, openVideo, getVideoButton } from "./knowledge.js";
 import { getVideoIdFromUrl } from './form-new.js'
 
 const formFields = document.querySelectorAll('form#form-add-knowledge input, form#form-add-knowledge select, form#form-add-knowledge textarea');
@@ -73,33 +73,16 @@ function atualizaCardHtml(event) {
     cardDescricao.textContent = event.target.descricao.value;
 
     const cardPlayVideoBtn = document.querySelector(`${cardHtml} footer > button.play-video`);
+
     if(cardPlayVideoBtn === null && temVideo(knowledge)) {
-        adicionarVideoButton(knowledge.id, knowledge.youtubeVideo);
+        const footer = document.querySelector(`.card[id='${knowledge.id}'] footer`);
+        footer.appendChild(getVideoButton(knowledge.youtubeVideo));
     } else if(cardPlayVideoBtn !== null && naoTemVideo(knowledge)) {
         cardPlayVideoBtn.remove();
     } else {
         const a = document.querySelector(`${cardHtml} footer > button.play-video a`);
         a.href = event.target['youtube-video'].value;
     }
-}
-
-function adicionarVideoButton(knowledgeId, videoId) {
-    const footer = document.querySelector(`.card[id='${knowledgeId}'] footer`);
-    const buttonVideo = document.createElement('button');
-    buttonVideo.className = 'play-video';
-
-    const a = document.createElement('a');
-    a.href = `https://www.youtube.com/watch?v=${videoId}`;
-    a.target = '_blank';
-
-    const iconeVideo = document.createElement('i');
-    iconeVideo.className = 'fa-solid fa-video';
-
-    buttonVideo.appendChild(iconeVideo);
-    buttonVideo.appendChild(a);
-    buttonVideo.addEventListener('click', openVideo);
-
-    footer.appendChild(buttonVideo);
 }
 
 function cardsEmEdicao() {

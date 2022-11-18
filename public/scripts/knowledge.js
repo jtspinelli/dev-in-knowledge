@@ -123,21 +123,7 @@ function populaCardHtml(knowledge) {
     footer.appendChild(buttonEditar);
 
     if(knowledge.youtubeVideo !== null) {
-        const buttonVideo = document.createElement('button');
-        buttonVideo.className = 'play-video';
-
-        const a = document.createElement('a');
-        a.href = `https://www.youtube.com/watch?v=${knowledge.youtubeVideo}`;
-        a.target = '_blank';
-
-        const iconeVideo = document.createElement('i');
-        iconeVideo.className = 'fa-solid fa-video';
-
-        buttonVideo.appendChild(iconeVideo);
-        buttonVideo.appendChild(a);
-        buttonVideo.addEventListener('click', openVideo);
-
-        footer.appendChild(buttonVideo);
+        footer.appendChild(getVideoButton(knowledge.youtubeVideo))
     }    
 
     article.className = 'card';
@@ -146,6 +132,24 @@ function populaCardHtml(knowledge) {
     article.appendChild(footer);
     
     return article;
+}
+
+export function getVideoButton(videoId) {
+    const buttonVideo = document.createElement('button');
+    buttonVideo.className = 'play-video';
+
+    const a = document.createElement('a');
+    a.href = `https://www.youtube.com/watch?v=${videoId}`;
+    a.target = '_blank';
+
+    const iconeVideo = document.createElement('i');
+    iconeVideo.className = 'fa-solid fa-video';
+
+    buttonVideo.appendChild(iconeVideo);
+    buttonVideo.appendChild(a);
+    buttonVideo.addEventListener('click', openVideo);
+
+        return buttonVideo;
 }
 
 export function openVideo(event) {
