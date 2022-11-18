@@ -74,7 +74,7 @@ function atualizaCardHtml(event) {
 
     const cardPlayVideoBtn = document.querySelector(`${cardHtml} footer > button.play-video`);
     if(cardPlayVideoBtn === null && temVideo(knowledge)) {
-        adicionarVideoButton();
+        adicionarVideoButton(knowledge.id, knowledge.youtubeVideo);
     } else if(cardPlayVideoBtn !== null && naoTemVideo(knowledge)) {
         cardPlayVideoBtn.remove();
     } else {
