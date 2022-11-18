@@ -148,7 +148,7 @@ function populaCardHtml(knowledge) {
     return article;
 }
 
-function openVideo(event) {
+export function openVideo(event) {
     const knowledgeId = getId(event); 
     
     if(knowledgeId !== '') {
