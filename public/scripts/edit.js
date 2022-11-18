@@ -1,4 +1,4 @@
-import { getKnowledges } from "./knowledge.js";
+import { atualizarLocalStorage, getKnowledges } from "./knowledge.js";
 import { getVideoIdFromUrl } from './form-new.js'
 
 const formFields = document.querySelectorAll('form#form-add-knowledge input, form#form-add-knowledge select, form#form-add-knowledge textarea');
@@ -56,6 +56,7 @@ export function salvarEdicao(event) {
     knowledge.youtubeVideo = getVideoIdFromUrl(event.target['youtube-video'].value);
 
     atualizaCardHtml(event);
+    atualizarLocalStorage();
 }
 
 function atualizaCardHtml(event) {

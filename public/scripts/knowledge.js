@@ -52,6 +52,11 @@ export function addKnowledge(knowledge) {
 
     atualizaContadorTotal();
     atualizarContadorDaCategoria(knowledge.categoria);
+    atualizarLocalStorage();    
+}
+
+export function atualizarLocalStorage() {
+    localStorage.setItem('knowledges', JSON.stringify(knowledges));
 }
 
 function sortByDate() {
