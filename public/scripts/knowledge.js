@@ -1,3 +1,4 @@
+import { confirmaExclusao } from './delete.js';
 import { editarKnowledge, getId } from './edit.js'
 
 const FRONTEND = 'FrontEnd';
@@ -124,6 +125,8 @@ function populaCardHtml(knowledge) {
     header.appendChild(ul);
 
     buttonExluir.appendChild(iconeLixeira);
+    buttonExluir.className = 'btn-excluir';
+    buttonExluir.addEventListener('click', confirmaExclusao)
     buttonEditar.appendChild(iconeEditar);
     buttonEditar.className = 'btn-editar'
     buttonEditar.addEventListener('click', editarKnowledge);
