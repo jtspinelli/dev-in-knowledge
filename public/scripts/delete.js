@@ -24,7 +24,7 @@ function removeCard(id) {
 
 function decrementaContador(categoria) {
     [...document.querySelectorAll('.counter')].forEach(counter => {
-        if(counter.previousElementSibling.textContent === categoria || counter.previousElementSibling.textContent === 'Total') {
+        if( ['Total', categoria].includes(counter.previousElementSibling.textContent) ) {
             counter.textContent--;
         }
     });
