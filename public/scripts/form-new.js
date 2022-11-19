@@ -1,5 +1,5 @@
 import {v4 as uuid} from '/uuid/dist/esm-browser/index.js';
-import { getKnowledges, addKnowledge } from './knowledge.js'
+import { addKnowledge } from './knowledge.js'
 import { salvarEdicao } from './edit.js'
 
 $('#categoria').select2({
