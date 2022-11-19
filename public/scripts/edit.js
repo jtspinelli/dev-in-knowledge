@@ -4,6 +4,7 @@ import { getVideoIdFromUrl } from './form-new.js'
 const formFields = document.querySelectorAll('form#form-add-knowledge input, form#form-add-knowledge select, form#form-add-knowledge textarea');
 const keysOrder = ['id', 'titulo', 'linguagemSkill', 'categoria', 'descricao', 'youtubeVideo'];
 const formArea = document.getElementById('form-area');
+const formAreaLogo = document.querySelector(`#form-area #logo-container`);
 const formTitle = document.getElementById('form-add-knowledge-title');
 const formResetBtn = document.querySelector('form#form-add-knowledge button[type=reset]');
 
@@ -43,6 +44,12 @@ function ativarModoEdicao(idEmEdicao) {
     formArea.classList.add('edit');
     formTitle.textContent = 'Editando';
     formResetBtn.textContent = 'Cancelar';
+
+    const telaHD = window.visualViewport.width <= 1366;
+    if(telaHD) {
+        formTitle.style.display = 'block';
+        formAreaLogo.style.display = 'none';
+    }
 }
 
 export function salvarEdicao(event) {

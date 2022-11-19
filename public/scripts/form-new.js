@@ -51,6 +51,12 @@ function desativaModoEdicao() {
     formArea.classList.remove('edit');
     formTitle.textContent = 'Novo Knowledge';
     formResetBtn.textContent = 'Limpar';
+
+    const telaHD = window.visualViewport.width <= 1366;
+    if(telaHD) {
+        formTitle.style = '';
+        document.querySelector(`#form-area #logo-container`).style = '';
+    }
 }
 
 export function getVideoIdFromUrl(youtubeVideoUrl) {
