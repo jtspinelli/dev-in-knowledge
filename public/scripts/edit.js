@@ -1,4 +1,4 @@
-import { atualizarLocalStorage, getKnowledges, openVideo, getVideoButton } from "./knowledge.js";
+import { atualizarLocalStorage, getKnowledges, getVideoButton } from "./knowledge.js";
 import { getVideoIdFromUrl } from './form-new.js'
 
 const formFields = document.querySelectorAll('form#form-add-knowledge input, form#form-add-knowledge select, form#form-add-knowledge textarea');
