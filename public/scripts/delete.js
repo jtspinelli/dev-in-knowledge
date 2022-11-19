@@ -2,7 +2,9 @@ import { getId } from "./edit.js";
 import { atualizarLocalStorage, getKnowledges } from "./knowledge.js";
 
 export function confirmaExclusao(event) {
-    if(confirm("Tem certeza que deseja excluir este knowledge?")) {
+    const titulo = getKnowledges().find(e => e.id === getId(event)).titulo;
+    
+    if(confirm(`Tem certeza que deseja excluir "${titulo}"?`)) {
         excluirKnowledge(event);
     }
 }
