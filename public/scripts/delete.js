@@ -6,6 +6,17 @@ export function confirmaExclusao(event) {
     
     if(confirm(`Tem certeza que deseja excluir "${titulo}"?`)) {
         excluirKnowledge(event);
+
+        Toastify({
+            text: "Knowledge excluído com sucesso!",        
+            duration: 3000,
+            className: "sucesso",
+            gravity: "top",
+            position: "right",
+            offset: {
+                y: -6
+              },
+        }).showToast();
     }
 }
 

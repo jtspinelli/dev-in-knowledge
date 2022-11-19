@@ -1,5 +1,6 @@
 import { atualizarLocalStorage, getKnowledges, getVideoButton } from "./knowledge.js";
 import { getVideoIdFromUrl } from './form-new.js'
+import Toastify from '/toastify-js/src/toastify-es.js';
 
 const formFields = document.querySelectorAll('form#form-add-knowledge input, form#form-add-knowledge select, form#form-add-knowledge textarea');
 const keysOrder = ['id', 'titulo', 'linguagemSkill', 'categoria', 'descricao', 'youtubeVideo'];
@@ -65,7 +66,16 @@ export function salvarEdicao(event) {
     atualizaCardHtml(event);
     atualizarLocalStorage();
 
-    setTimeout(() => {alert("Knowledge atualizado com sucesso!")});
+    Toastify({
+        text: "Knowledge atualizado com sucesso!",        
+        duration: 3000,
+        className: "sucesso",
+        gravity: "top",
+        position: "right",
+        offset: {
+            y: -6
+          },
+    }).showToast();
 }
 
 function atualizaCardHtml(event) {

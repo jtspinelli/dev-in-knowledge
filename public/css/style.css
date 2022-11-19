@@ -401,7 +401,9 @@ main {
 background: var(--lilas);
 }
 
-
+.sucesso {
+    background: linear-gradient(135deg,#73a5ff,#5477f5);
+}
 @media screen and (max-width: 1366px) {
     aside #logo-container {
         display: flex;

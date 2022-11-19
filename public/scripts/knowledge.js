@@ -25,7 +25,16 @@ export function addKnowledge(knowledge) {
     atualizarContadorDaCategoria(knowledge.categoria);
     atualizarLocalStorage();
 
-    setTimeout(() => {alert("Knowledge criado com sucesso!")});
+    Toastify({
+        text: "Knowledge criado com sucesso!",        
+        duration: 3000,
+        className: "sucesso",
+        gravity: "top",
+        position: "right",
+        offset: {
+            y: -6
+          },
+    }).showToast();
 }
 
 export function atualizarLocalStorage() {
