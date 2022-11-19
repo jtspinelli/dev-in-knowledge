@@ -15,7 +15,13 @@ function submitFormSearch(event) {
     const filtrados = getKnowledges().filter(e => normalized(e.titulo).includes(searchString) || normalized(e.descricao).includes(searchString));
     cardsContainer.innerHTML = '';
 
-    populaCards(filtrados);
+    if(filtrados.length > 0) {
+        populaCards(filtrados);
+    } else {
+        cardsContainer.innerHTML = `<p>Nenhum item encontrado.</p>`
+    }
+
+    
 }
 
 function normalized(string) {
