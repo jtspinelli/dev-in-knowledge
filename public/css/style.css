@@ -18,6 +18,7 @@
     --green: #55ff55;
     --yellow: #ffec55;
     --text-default: #272727;
+    --searchbar-buttons-width: 78px;
 }
 
 body {
@@ -243,6 +244,7 @@ main {
 .search-bar {
     padding: 10px 20px;
     padding-right: 29px;
+    position: relative;
 }
 
 .search-bar form {
@@ -251,7 +253,7 @@ main {
 }
 
 .search-bar form input {
-    width: calc(100% - (56px * 2) - 20px);
+    width: calc(100% - (var(--searchbar-buttons-width) * 2) - 20px);
     padding: 5px 15px;
     border-radius: 25px;
     border: 1px solid var(--roxo);
@@ -272,13 +274,25 @@ main {
 
 .search-bar form button {
     padding: 3px;
-    width: 56px;
+    width: var(--searchbar-buttons-width);
     border-radius: 25px;
     font-size: 1.5rem;
     background-color: white;
     border: 1px solid var(--roxo);
     color: var(--roxo);
     cursor: pointer;
+    text-align: center;
+}
+
+#filtro-counter {
+    font-size: 1.1rem;
+}
+
+#form-search button[type="reset"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
 }
 
 .search-bar form button:hover, .card footer button:hover {

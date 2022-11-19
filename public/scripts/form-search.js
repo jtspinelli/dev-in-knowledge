@@ -3,6 +3,7 @@ import { getKnowledges, populaCards, sortByDate } from './knowledge.js'
 const formSearch = document.getElementById('form-search');
 const cardsContainer = document.querySelector('.cards-container');
 const searchInput = document.getElementById('search-input');
+const filtroCounter = document.getElementById('filtro-counter');
 
 formSearch.addEventListener('submit', submitFormSearch);
 formSearch.addEventListener('reset', limparFiltroSeAtivo);
@@ -11,17 +12,23 @@ searchInput.addEventListener('blur', limparFiltroSeVazio);
 function submitFormSearch(event) {
     event.preventDefault();
     const searchString = normalized(event.target['search-input'].value);
+    const searchStringNaoVazia = searchString.length > 0;
 
-    const filtrados = getKnowledges().filter(e => normalized(e.titulo).includes(searchString) || normalized(e.descricao).includes(searchString));
-    cardsContainer.innerHTML = '';
+    if(searchStringNaoVazia) {
+        const filtrados = getKnowledges().filter(e => normalized(e.titulo).includes(searchString) || normalized(e.descricao).includes(searchString));
+        cardsContainer.innerHTML = '';
 
-    if(filtrados.length > 0) {
-        populaCards(filtrados);
+        if(filtrados.length > 0) {
+            populaCards(filtrados);
+            filtroCounter.style = '';
+            filtroCounter.textContent = `(${filtrados.length})`;
+        } else {
+            cardsContainer.innerHTML = `<p>Nenhum item encontrado.</p>`
+        }
     } else {
-        cardsContainer.innerHTML = `<p>Nenhum item encontrado.</p>`
+        const temFiltroAtivo = filtroCounter.style !== '';
+        if(temFiltroAtivo) limpaFiltro();
     }
-
-    
 }
 
 function normalized(string) {
@@ -42,5 +49,7 @@ function limparFiltroSeAtivo() {
 
 function limpaFiltro() {
     cardsContainer.innerHTML = '';
-    populaCards(sortByDate(getKnowledges()));    
+    populaCards(sortByDate(getKnowledges()));
+
+    filtroCounter.style.display = "none";
 }
