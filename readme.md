@@ -19,6 +19,12 @@ Cada **knowledge** adicionado pode conter até 5 informações fornecidas pelo u
 
 <br>
 
+## It's LIVE
+
+Experimente o app [online](https://devin-knowledge.herokuapp.com/)!
+
+<br>
+
 ## Funcionalidades
 
 A aplicação permite:
