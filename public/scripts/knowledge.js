@@ -23,7 +23,9 @@ export function addKnowledge(knowledge) {
 
     atualizaContadorTotal();
     atualizarContadorDaCategoria(knowledge.categoria);
-    atualizarLocalStorage();    
+    atualizarLocalStorage();
+
+    setTimeout(() => {alert("Knowledge criado com sucesso!")});
 }
 
 export function atualizarLocalStorage() {
