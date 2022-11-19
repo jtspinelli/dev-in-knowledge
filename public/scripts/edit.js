@@ -57,6 +57,8 @@ export function salvarEdicao(event) {
 
     atualizaCardHtml(event);
     atualizarLocalStorage();
+
+    setTimeout(() => {alert("Knowledge atualizado com sucesso!")});
 }
 
 function atualizaCardHtml(event) {
