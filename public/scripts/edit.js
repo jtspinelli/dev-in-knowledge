@@ -71,10 +71,6 @@ export function salvarEdicao(event) {
         duration: 3000,
         className: "sucesso",
         gravity: "top",
-        position: "right",
-        offset: {
-            y: -6
-          },
     }).showToast();
 }
 

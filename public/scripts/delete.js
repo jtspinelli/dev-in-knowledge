@@ -1,10 +1,18 @@
 import { getId } from "./edit.js";
 import { atualizarLocalStorage, getKnowledges } from "./knowledge.js";
+import { confirmacao, popularModal } from "./modal.js";
 
-export function confirmaExclusao(event) {
-    const titulo = getKnowledges().find(e => e.id === getId(event)).titulo;
-    
-    if(confirm(`Tem certeza que deseja excluir "${titulo}"?`)) {
+const modalConfirm = document.querySelector('.modal-container');
+
+export async function confirmaExclusao(event) {
+    const knowledge = getKnowledges().find(e => e.id === getId(event));
+    popularModal(knowledge);
+
+    modalConfirm.classList.toggle('hidden');
+
+    const confirmaExclusao = await confirmacao().catch(err => {});
+   
+    if(confirmaExclusao) {
         excluirKnowledge(event);
 
         Toastify({

@@ -16,6 +16,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
     <script src="scripts/form-search.js" defer type="module"></script>
     <script src="scripts/form-new.js" defer type="module"></script>
+    <script src="scripts/modal.js" defer type="module"></script>
 </head>
 <body>
     <header id="page-header">
@@ -106,5 +107,23 @@
             <section class="cards-container"></section>
         </div>
     </main>
+
+    <section class="modal-container hidden">
+        <div class="modal-content">
+            <header>
+                <h3>Tem certeza que deseja excluir este knowledge?</h3>
+            </header>
+
+            <div class="knowledge-info">
+                <h4></h4>
+                <p></p>
+            </div>
+
+            <footer>
+                <button class="modal-confirm-btn">Excluir</button>
+                <button class="modal-cancel-btn">Cancela</button>
+            </footer>
+        </div>
+    </section>
 </body>
 </html>
