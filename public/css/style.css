@@ -408,7 +408,8 @@ background: var(--lilas);
 .toastify {
     left: calc(50% + (1366px / 2));
     transform: translate(-100%, -6px) !important;
-    width: 300px;;
+    width: fit-content;
+    white-space: nowrap;
 }
 
 .modal-container {
