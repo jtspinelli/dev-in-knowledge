@@ -216,6 +216,7 @@ main {
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
+    padding-right: 29px;
 }
 
 .totais-cards > div, .card {
@@ -241,6 +242,7 @@ main {
 
 .search-bar {
     padding: 10px 20px;
+    padding-right: 29px;
 }
 
 .search-bar form {
