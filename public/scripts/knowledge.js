@@ -30,14 +30,14 @@ export function atualizarLocalStorage() {
     localStorage.setItem('knowledges', JSON.stringify(knowledges));
 }
 
-function sortByDate() {
-    knowledges.sort((a, b) => b.dataCriacao > a.dataCriacao ? 1 : -1);
+export function sortByDate(array) {
+    return array.sort((a, b) => b.dataCriacao > a.dataCriacao ? 1 : -1);
 }
 
 function init() {
     getKnowledgesFromLocalStorage();
     populaContadores();
-    populaCards();
+    populaCards(knowledges);
 }
 
 function getKnowledgesFromLocalStorage() {
@@ -75,10 +75,10 @@ function populaContadores() {
     }
 }
 
-function populaCards() {
-    sortByDate();
+export function populaCards(knowledges) {
+    const sorted = sortByDate(knowledges);
     
-    knowledges.forEach(knowledge => {
+    sorted.forEach(knowledge => {
         cardsContainer.appendChild(populaCardHtml(knowledge));
     });
 }

@@ -79,7 +79,7 @@ function atualizaCardHtml(event) {
         footer.appendChild(getVideoButton(knowledge.youtubeVideo));
     } else if(cardPlayVideoBtn !== null && naoTemVideo(knowledge)) {
         cardPlayVideoBtn.remove();
-    } else {
+    } else if(cardPlayVideoBtn !== null && temVideo(knowledge)) {
         const a = document.querySelector(`${cardHtml} footer > button.play-video a`);
         a.href = event.target['youtube-video'].value;
     }

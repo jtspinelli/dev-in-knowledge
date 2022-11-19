@@ -65,7 +65,7 @@ function submitForm(event) {
     } else {
         const newKnowledge = {
             id: uuid(),
-            dataCriacao: new Date(),
+            dataCriacao: new Date().toISOString(),
             titulo: event.target.titulo.value,
             linguagemSkill: event.target['linguagem-skill'].value,
             categoria: event.target.categoria.value,
