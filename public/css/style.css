@@ -198,7 +198,7 @@ main {
     outline-style: solid;
 }
 
-#form-area input::placeholder,.select2-container--default .select2-selection--single .select2-selection__placeholder, #form-search input::placeholder {
+#form-area input::placeholder, #form-area textarea::placeholder, .select2-container--default .select2-selection--single .select2-selection__placeholder, #form-search input::placeholder {
     color: var(--prata-dark);
     font-weight: 300;
     font-family: 'Nunito', sans-serif;
