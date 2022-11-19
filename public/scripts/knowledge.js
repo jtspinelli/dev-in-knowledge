@@ -73,7 +73,7 @@ function atualizarContadorDaCategoria(categoria) {
     contadorHtml.textContent = qtdeDaCategoria;
 }
 
-function populaContadores() {
+export function populaContadores() {
     const qtdeFrontEnd = knowledges.filter(e => e.categoria === FRONTEND).length;
     const qtdeBackEnd = knowledges.filter(e => e.categoria === BACKEND).length;
     const qtdeFullStack = knowledges.filter(e => e.categoria === FULLSTACK).length;

@@ -1,4 +1,4 @@
-import { atualizarLocalStorage, getKnowledges, getVideoButton } from "./knowledge.js";
+import { atualizarLocalStorage, getKnowledges, getVideoButton, populaContadores } from "./knowledge.js";
 import { getVideoIdFromUrl } from './form-new.js'
 import Toastify from '/toastify-js/src/toastify-es.js';
 
@@ -64,6 +64,7 @@ export function salvarEdicao(event) {
     knowledge.youtubeVideo = getVideoIdFromUrl(event.target['youtube-video'].value);
 
     atualizaCardHtml(event);
+    populaContadores();
     atualizarLocalStorage();
 
     Toastify({
