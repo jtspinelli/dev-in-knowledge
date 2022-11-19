@@ -80,3 +80,5 @@ npm start
 ```
 
 Dirija-se ao endereço ```localhost:3000``` para utilizar a aplicação.
+
+#### * necessário ter o [Node.js](https://nodejs.org/en/) instalado.
