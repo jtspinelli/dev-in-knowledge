@@ -56,23 +56,41 @@ function ativarModoEdicao(idEmEdicao) {
 export function salvarEdicao(event) {
     const knowledge = getKnowledges().find(e => e.id === event.target['knowledge-id'].value);
 
-    knowledge.titulo = event.target.titulo.value;
-    knowledge.linguagemSkill = event.target['linguagem-skill'].value;
-    knowledge.categoria = event.target.categoria.value;
-    knowledge.descricao = event.target.descricao.value;
-    knowledge.titulo = event.target.titulo.value;
-    knowledge.youtubeVideo = getVideoIdFromUrl(event.target['youtube-video'].value);
+    if(naoTemModificacao(event)) {
+        Toastify({
+            text: "Nenhuma modificação realizada.",        
+            duration: 3000,
+            className: "warning",
+            gravity: "top",
+        }).showToast();
+    } else {
+        knowledge.titulo = event.target.titulo.value;
+        knowledge.linguagemSkill = event.target['linguagem-skill'].value;
+        knowledge.categoria = event.target.categoria.value;
+        knowledge.descricao = event.target.descricao.value;
+        knowledge.youtubeVideo = getVideoIdFromUrl(event.target['youtube-video'].value);
 
-    atualizaCardHtml(event);
-    populaContadores();
-    atualizarLocalStorage();
+        atualizaCardHtml(event);
+        populaContadores();
+        atualizarLocalStorage();
 
-    Toastify({
-        text: "Knowledge atualizado com sucesso!",        
-        duration: 3000,
-        className: "sucesso",
-        gravity: "top",
-    }).showToast();
+        Toastify({
+            text: "Knowledge atualizado com sucesso!",        
+            duration: 3000,
+            className: "sucesso",
+            gravity: "top",
+        }).showToast(); 
+    } 
+}
+
+function naoTemModificacao(event) {
+    const knowledge = getKnowledges().find(e => e.id === event.target['knowledge-id'].value);
+    
+    return event.target.titulo.value === knowledge.titulo
+    && event.target['linguagem-skill'].value === knowledge.linguagemSkill
+    && event.target.categoria.value === knowledge.categoria
+    && event.target.descricao.value === knowledge.descricao
+    && getVideoIdFromUrl(event.target['youtube-video'].value) === knowledge.youtubeVideo
 }
 
 function atualizaCardHtml(event) {

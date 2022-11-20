@@ -405,6 +405,10 @@ background: var(--lilas);
     background: linear-gradient(135deg,#73a5ff,#5477f5);
 }
 
+.warning {
+    background: linear-gradient(135deg,#e96714,#d90c5a);
+}
+
 .toastify {
     left: calc(50% + (1366px / 2));
     transform: translate(-100%, -6px) !important;
