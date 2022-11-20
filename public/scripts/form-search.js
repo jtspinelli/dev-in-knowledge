@@ -18,12 +18,34 @@ function submitFormSearch(event) {
         const filtrados = getKnowledges().filter(e => normalized(e.titulo).includes(searchString) || normalized(e.descricao).includes(searchString));
         cardsContainer.innerHTML = '';
 
+        filtroCounter.style = '';
+        filtroCounter.textContent = `(${filtrados.length})`;
+
         if(filtrados.length > 0) {
             populaCards(filtrados);
-            filtroCounter.style = '';
-            filtroCounter.textContent = `(${filtrados.length})`;
+            const message = filtrados.length === 1 ? `${filtrados.length} item encontrado.` : `${filtrados.length} itens encontrados.`;
+            Toastify({                
+                text: message,        
+                duration: 3000,
+                className: "sucesso",
+                gravity: "top",
+                position: "right",
+                offset: {
+                    y: -6
+                  },
+            }).showToast();
         } else {
-            cardsContainer.innerHTML = `<p>Nenhum item encontrado.</p>`
+            cardsContainer.innerHTML = `<p>Nenhum item para exibir.</p>`
+            Toastify({                
+                text: "nada encontrado",        
+                duration: 3000,
+                className: "sucesso",
+                gravity: "top",
+                position: "right",
+                offset: {
+                    y: -6
+                  },
+            }).showToast();
         }
     } else {
         const temFiltroAtivo = filtroCounter.style !== '';
