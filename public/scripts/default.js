@@ -44,7 +44,7 @@ const defaultKnowledges = [
     {
         id: "ecfe429b-3627-4a7c-b2aa-8e007e5a3d39",
         dataCriacao: new Date('Thu Nov 19 2022 14:03:19 GMT-0300 (Brasilia Standard Time)'),
-        titulo: "Spread e Rest operators",
+        titulo: "Javascript Loops",
         linguagemSkill: "Javascript",
         categoria: "FrontEnd",
         descricao: "Loops são uma forma de repetir coisas, em Javascript. Existem vários tipos de loop: FOR, FOR..IN, FOR..OF, WHILE, DO..WHILE, além da função forEach. Confirma o vídeo para uma explicação simples sobre os Javascript Loops!",
