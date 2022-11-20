@@ -60,6 +60,14 @@ Avisos de sucesso nas operações de criação, edição ou exclusão de um **kn
 
 <br>
 
+O mesmo sistema é utilizado para informar a quantidade de itens encontrados ao utilizar a barra de pesquisa para filtrar os "**knowledges**".
+
+<div align='center'>
+<img height='220px' src='./images/Toast filtro.png'>
+</div>
+
+<br>
+
 ## Filtro
 
 Botão de limpar filtro indica a quantidade de "**knowledges**" atualmente filtrados pelo valor digitado no campo de busca (2, no exemplo abaixo).
