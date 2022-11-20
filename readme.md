@@ -60,6 +60,14 @@ Avisos de sucesso nas operações de criação, edição ou exclusão de um **kn
 
 <br>
 
+## Filtro
+
+Botão de limpar filtro indica a quantidade de "**knowledges**" atualmente filtrados pela valor digitado no campo de busca (2, no exemplo abaixo).
+
+![filtro](./images/Filtro.png)
+
+<br>
+
 ## Confirmação de exclusão
 
 Um modal de confirmação gera uma **Promise** que será resolvida quando o usuário confirmar a exclusão ou rejeitada caso ele cancele.
