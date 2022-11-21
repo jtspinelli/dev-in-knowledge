@@ -134,6 +134,8 @@ No formato **Smartphones**, os botões de pesquisa só são mostrados quando o u
 <img width='31%' src='./images/App Smart Search Animation.gif'>
 </div>
 
+<br>
+
 ## Rodando a aplicação*
 
 Após baixar os arquivos do repositório, instale as dependências rodando o comando:
