@@ -88,6 +88,52 @@ O cancelamento pode ser realizado clicando no botão **cancelar** ou simplesment
 
 <br>
 
+## Responsividade
+
+A aplicação assume 4 possíveis formatos, dependendo da largura da tela.
+
+Além da apresentada na seção **Funcionalidades** (padrão para telas com largura superior a 1366px, tais como FullHD), há os seguintes formatos:
+
+- **Telas HD**: sem cabeçalho | formulário preenche toda a altura da página
+
+<div align='center'>
+<img width='100%' src='./images/App HD.png'>
+</div>
+
+<br>
+
+- **Tablets**: formulário se torna barra lateral expansível através de botão "hamburguer"
+
+<div align='center'>
+<img width='48%' src='./images/App Tablet 1.png'>
+...
+<img width='48%' src='./images/App Tablet 2.png'>
+</div>
+
+<br>
+
+- **Smartphones**: formulário se torna barra superior expansível através de botão "hamburguer"
+
+<div align='center'>
+<img width='31%' src='./images/App Smart 1.png'>
+...
+<img width='31%' src='./images/App Smart 2.png'>
+...
+<img width='31%' src='./images/App Smart Animation.gif'>
+</div>
+
+<br>
+
+No formato **Smartphones**, os botões de pesquisa só são mostrados quando o usuário clica na barra de pesquisa | durante esta mesma ação, os cards contadores são escondidos
+
+<div align='center'>
+<img width='31%' src='./images/App Smart Searchbar 1.png'>
+...
+<img width='31%' src='./images/App Smart Searchbar 2.png'>
+...
+<img width='31%' src='./images/App Smart Search Animation.gif'>
+</div>
+
 ## Rodando a aplicação*
 
 Após baixar os arquivos do repositório, instale as dependências rodando o comando:
