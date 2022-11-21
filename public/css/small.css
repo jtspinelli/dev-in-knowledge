@@ -1,0 +1,184 @@
+@media (max-width: 650px) {
+    #form-area.tablet-friendly * {
+        transition: 600ms !important;
+    }
+
+    #form-area.tablet-friendly > h1 {
+        display: block;
+        opacity: 0;
+    }
+
+    #form-area.tablet-friendly.opened > h1 {
+        animation: opacity 600ms forwards;                     
+    }
+
+    @keyframes opacity {
+        0% { opacity: 0; }
+        50%   { opacity: 0; }
+        100%   { opacity: 1; }
+    }
+
+    @keyframes opacityout {
+        0% { opacity: 1; }
+        50%   { opacity: 1; }
+        100%   { opacity: 0; }
+    }
+
+    #form-area.tablet-friendly {
+        width: 100vw;
+        max-width: 100vw;
+        height: 68px;
+        min-height: 68px;
+        border-radius: 0;
+        width: 100vw;
+        left: 0;
+        top: 0;
+        gap: 20px;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        transition: 600ms !important;
+    }
+
+    #form-area.tablet-friendly #logo-container {
+        position: fixed;
+        top: 34px;
+        transform: translateY(-50%);
+        padding: 0;
+    }
+
+    #form-area.tablet-friendly #form-add-knowledge {
+        height: 0;
+        overflow: hidden;
+        padding: 0;
+        opacity: 0;
+    }
+
+    #form-area.tablet-friendly.opened #form-add-knowledge {
+        padding-right: 0;
+        opacity: 1;
+    }
+
+    #main-content.tablet-friendly {
+        margin: 0;
+        padding-top: 68px;        
+    }
+    
+    .hamb-btn {
+        top: 21px;
+        z-index: 2;
+        position: fixed;
+    }
+
+    #form-area.tablet-friendly.opened {
+        height: 100vh;
+        width: 100vw;
+        max-width: 100vw;
+    }
+
+    #form-area.tablet-friendly.opened #form-add-knowledge {
+        height: unset;
+    }
+
+    .totais-cards {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow: hidden;
+        height: 180px;
+        transition: 600ms;
+    }
+
+    .hide-by-height {
+        padding-top: 0;
+        padding-bottom: 0;
+        height: 0;
+        transition: 600ms;
+    }
+
+    .totais-cards > div {
+        width: calc(33.33% - 7px);
+    }
+
+    .totais-cards > div h4 {
+        font-size: 1rem;
+    }
+
+    .totais-cards > div span {
+        font-size: 1.2rem;
+    }
+
+    .totais-cards.hide-by-height ~ .cards-container {
+        max-height: calc(100vh - 68px - 54px);
+        transition: 600ms;
+    }
+
+    .search-bar form {
+        height: 34px;
+        transition: 600ms;
+    }
+
+    .search-bar form button {
+        display: flex !important;
+        justify-content: center;
+        height: 32px;
+        width: 40%;
+        animation: opacityout 300ms forwards;
+    }
+
+    .totais-cards.hide-by-height ~ .search-bar form {
+        height: 76px;
+        transition: 600ms;
+    }
+
+    .totais-cards.hide-by-height ~ .search-bar form button {
+        animation: opacity 600ms forwards;
+    }
+
+    .cards-container {
+        max-height: calc(100vh - 68px - 54px - 180px);
+    }
+
+    .card {
+        font-size: 14px;
+    }
+
+    .search-bar form {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .search-bar form input {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+    .modal-content header h3 {
+        font-size: 3.5vw;
+    }
+
+    .toastify {
+        left: 50%;
+        transform: translate(-50%, -4px) !important;
+    }
+
+    .warning {
+        top: -15px;
+    }
+
+    #logo-container {
+        font-size: 4rem !important;
+    }
+}
+
+@media (max-width: 400px) {
+    #form-area #logo-container h1 {
+        font-size: 7vw;
+    }
+
+    #form-area #logo-container h3 {
+        font-size: 3vw;
+    }
+}

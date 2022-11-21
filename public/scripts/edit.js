@@ -1,6 +1,7 @@
 import { atualizarLocalStorage, getKnowledges, getVideoButton, populaContadores } from "./knowledge.js";
-import { getVideoIdFromUrl } from './form-new.js'
+import { getVideoIdFromUrl } from './form-new.js';
 import Toastify from '/toastify-js/src/toastify-es.js';
+
 
 const formFields = document.querySelectorAll('form#form-add-knowledge input, form#form-add-knowledge select, form#form-add-knowledge textarea');
 const keysOrder = ['id', 'titulo', 'linguagemSkill', 'categoria', 'descricao', 'youtubeVideo'];
@@ -8,6 +9,7 @@ const formArea = document.getElementById('form-area');
 const formAreaLogo = document.querySelector(`#form-area #logo-container`);
 const formTitle = document.getElementById('form-add-knowledge-title');
 const formResetBtn = document.querySelector('form#form-add-knowledge button[type=reset]');
+const hamburguerBtn = document.querySelector('#menu-toggle');
 
 export function editarKnowledge(event) {
     const id = getId(event);   
@@ -47,9 +49,17 @@ function ativarModoEdicao(idEmEdicao) {
     formResetBtn.textContent = 'Cancelar';
 
     const telaHD = window.visualViewport.width <= 1366;
-    if(telaHD) {
+    const tablet = window.visualViewport.width <= 1090;
+    const smartphone = window.visualViewport.width <=650;
+    const formFechado = formArea.classList.value.indexOf('opened') === -1;
+
+    if(telaHD && !smartphone) {
         formTitle.style.display = 'block';
         formAreaLogo.style.display = 'none';
+    }    
+    
+    if(tablet && formFechado) {
+        hamburguerBtn.click();
     }
 }
 

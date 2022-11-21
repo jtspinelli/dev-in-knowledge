@@ -4,10 +4,12 @@ const formSearch = document.getElementById('form-search');
 const cardsContainer = document.querySelector('.cards-container');
 const searchInput = document.getElementById('search-input');
 const filtroCounter = document.getElementById('filtro-counter');
+const totaisCard = document.querySelector('.totais-cards');
 
 formSearch.addEventListener('submit', submitFormSearch);
 formSearch.addEventListener('reset', limparFiltroSeAtivo);
 searchInput.addEventListener('blur', limparFiltroSeVazio);
+searchInput.addEventListener('focus', expandSearchArea);
 
 function submitFormSearch(event) {
     event.preventDefault();
@@ -58,14 +60,25 @@ function normalized(string) {
 }
 
 function limparFiltroSeVazio() {
-    if(searchInput.value.length === 0) {
+    const searchInputVazio = searchInput.value.length === 0
+    if(searchInputVazio) {
         limpaFiltro();
+    }
+
+    const smartphone = window.visualViewport.width <=650;
+    if(smartphone && searchInputVazio) {
+        totaisCard.classList.remove('hide-by-height');
     }
 }
 
 function limparFiltroSeAtivo() {
     if(searchInput.value.length > 0) {
         limpaFiltro();
+    }
+
+    const smartphone = window.visualViewport.width <=650;
+    if(smartphone) {
+        totaisCard.classList.remove('hide-by-height');
     }
 }
 
@@ -74,4 +87,12 @@ function limpaFiltro() {
     populaCards(sortByDate(getKnowledges()));
 
     filtroCounter.style.display = "none";
+}
+
+function expandSearchArea() {
+    const smartphone = window.visualViewport.width <=650;
+
+    if(smartphone) {
+        totaisCard.classList.add('hide-by-height');
+    }
 }

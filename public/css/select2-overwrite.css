@@ -7,6 +7,7 @@
 .select2-container .select2-selection--single {
     padding: 5px;
     height: 38px;
+    transition: 1s;
 }
 
 .select2-container .select2-selection--single .select2-selection__rendered {
