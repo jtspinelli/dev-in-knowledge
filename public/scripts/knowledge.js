@@ -10,6 +10,7 @@ const SOFTSKILLS = 'SoftSkills';
 const cardsContainer = document.querySelector('section.cards-container');
 const counters = document.querySelectorAll('.counter');
 const knowledges = getDefaultKnowledges();
+const hamburguerBtn = document.querySelector('#menu-toggle');
 
 window.addEventListener('load', init);
 
@@ -35,6 +36,11 @@ export function addKnowledge(knowledge) {
             y: -6
           },
     }).showToast();
+
+    const tablet = window.visualViewport.width <= 1090;
+    if(tablet) {
+        hamburguerBtn.click();
+    }
 }
 
 export function atualizarLocalStorage() {
