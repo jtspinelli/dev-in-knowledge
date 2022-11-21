@@ -46,16 +46,22 @@
         padding: 0;
     }
 
-    #form-area.tablet-friendly #form-add-knowledge {
-        height: 0;
-        overflow: hidden;
-        padding: 0;
-        opacity: 0;
+    @keyframes heightout {
+        from { height: auto; }
+        to   { height: 0; }
     }
 
+    #form-area.tablet-friendly #form-add-knowledge {
+        animation: opacityout 300ms forwards;
+        height: 0;
+        overflow: hidden;
+        padding: 0;     
+    }
+  
     #form-area.tablet-friendly.opened #form-add-knowledge {
+        height: 428px;
         padding-right: 0;
-        opacity: 1;
+        animation: opacity 600ms forwards;
     }
 
     #main-content.tablet-friendly {
@@ -73,11 +79,7 @@
         height: 100vh;
         width: 100vw;
         max-width: 100vw;
-    }
-
-    #form-area.tablet-friendly.opened #form-add-knowledge {
-        height: unset;
-    }
+    }    
 
     .totais-cards {
         gap: 10px;
